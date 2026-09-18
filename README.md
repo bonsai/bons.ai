@@ -76,3 +76,94 @@ components:
   - github
   - agentic-workflows
 ```
+
+## Vision — prompt → product
+
+bons.ai は、**プロンプトからプロダクトまで**を一貫させる Agent OS。
+
+```text
+prompt
+  ↓
+相談（consult）
+  ↓
+設計書（design doc）
+  ↓
+ルール（rules）
+  ↓
+product
+```
+
+**相談してから設計する。設計してから作る。作る前にルールを決める。**
+
+## Design Principles
+
+- **Consult first.** 相談してから設計書を書く。
+- **Rules over prompts.** ルールを作る。場当たりのプロンプトに頼らない。
+- **Prune the waste.** 無駄は刈り取る。
+- **Agents initiate.** エージェントから働きかける（待たない）。
+- **CLI first.** 操作は CLI から。
+- **Wrapper skills.** スキルをラップして呼び出す。
+- **gh aw for CI/CD.** Agentic Workflows で pack / publish / deploy。
+- **MCP + SDK.** MCP サーバと SDK を提供する。
+- **OpenAPI.** API は OpenAPI で定義する。
+- **Natural language first.** 実装は Python / TypeScript / Rust / Go を想定するが、**今は自然言語のみ**。
+- **Bilingual.** 英語と日本語を混ぜて書く。
+- **Start small.** まず **README と issue 10本**のみ。既存 repo のオーガナイズ計画を先に行う。
+
+## Conceptual model — Verbs, Ontology, Interfaces
+
+- **体験は動詞で語られる。** Experience is narrated by verbs.
+- **動詞はオントロジで関係される。** Verbs are related through ontology.
+- **動詞を持つエージェントはチームを作る。** Agents with verbs form teams → ecosystem.
+- **界面で異なる型たちが交流する。** At interfaces, different types interact.
+- **物理層と記号層を統一する。** Unify the physical layer and the symbolic layer.
+- **type はオブジェクトに限らない。** Type spans objects, verbs, agents, workflows, relations, interfaces.
+
+```text
+Experience → Verb → Ontology → Agent → Team → Ecosystem
+                                   ↕
+                              Interface
+                                   ↕
+                     Physical layer  ⇄  Symbolic layer
+```
+
+```text
+TYPE
+ ├─ Object Type      名詞
+ ├─ Verb Type        動詞（体験を語る）
+ ├─ Agent Type       動詞を持つエージェント
+ ├─ Workflow Type    動詞の連鎖
+ ├─ Relation Type    関係（オントロジ）
+ └─ Interface Type   型が交流する界面
+```
+
+## X Series
+
+The Bonsai layers are organized as the **X Series** (A–Z) and indexed in
+[`bonsai/xX`](https://github.com/bonsai/xX): `xX` (foundation), plus `AX`, `BX`,
+`CX`…`ZX`. Types (philosopher, scientist, businessperson, …) and transformations
+(market, editor, writing, traveler, …) are specializations of the same base.
+
+See [`bonsai/OX`](https://github.com/bonsai/OX) for the type system (Type OS),
+and [`bonsai/TX`](https://github.com/bonsai/TX) for Traveler X.
+
+## AGENTS / SESSIONS / MEMORY
+
+```text
+Agent   = who acts        （誰が行為するか）
+Session = unit of work    （仕事の単位）
+HOIPOI  = pocket          （持ち運べるセッション）
+recap   = capsule         （機械可読な引き継ぎ）
+GitHub  = shared state    （共有された状態）
+AW      = orchestration   （実行の調整）
+```
+
+## Roadmap
+
+| 段階 | 内容 |
+|---|---|
+| now | README と issue 10本のみ |
+| next | 既存 repo のオーガナイズ |
+| later | CLI / skills / MCP / SDK / OpenAPI |
+| later | ブラウザ拡張（WebSocket） |
+
