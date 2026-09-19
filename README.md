@@ -86,6 +86,43 @@ update
     ↺
 ```
 
+## Runtime Architecture
+
+The Agent Core is independent from its entry point. CLI is one interface, not the runtime itself.
+
+```text
+                    bons.ai
+                Agent Core / Runtime
+                        │
+             ┌──────────┼──────────┐
+             ↓          ↓          ↓
+           CLI        HTTP API     MCP
+             │          │          │
+             └──────────┼──────────┘
+                        ↓
+                      Agent
+                        ↓
+                      Skill
+                        ↓
+                 World / Interface
+```
+
+The same agent and skill runtime can therefore be used from a terminal, browser application, external service, IDE, or event-driven integration.
+
+### Interfaces
+
+- **CLI** — human and local automation entry point
+- **HTTP API** — browser and external application entry point
+- **MCP** — AI tools and agent-to-agent entry point
+- **Webhook / Events** — event-driven entry point
+- **GitHub** — issues, pull requests, actions, and shared state
+
+The architectural rule is:
+
+> **CLI is an interface to bons.ai, not bons.ai itself.**
+
+This keeps the autonomous agent core independent of presentation and allows new interfaces to be added without changing the agent's reasoning and skill execution model.
+
 ## System model
 
 ```text
