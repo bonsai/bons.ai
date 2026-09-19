@@ -4,6 +4,88 @@
 
 It provides the operating layer that connects agents, sessions, memory, tools, workflows, and GitHub-based shared state.
 
+## World model
+
+bons.ai treats the world as a typed, relational world.
+
+The world is described through five layers:
+
+```text
+Dictionary
+    ↓
+Ontology
+    ↓
+Type
+    ↓
+System
+    ↓
+Interface
+```
+
+- **Dictionary — 言葉**: defines the meaning of terms and symbols.
+- **Ontology — 存在**: defines what exists in the world.
+- **Type — 型**: defines the structure and kind of entities.
+- **System — 関係**: describes relationships between entities.
+- **Interface — 境界と接続**: defines where entities meet the outside world and what is exchanged across that boundary.
+
+```text
+Dictionary = 言葉
+Ontology   = 存在
+Type       = 型
+System     = 関係
+Interface  = 境界と接続
+```
+
+Boundary is not treated as a separate layer:
+
+```text
+Interface = Boundary + Exchange
+```
+
+This gives bons.ai a world model in which entities have types, entities are related by systems, and entities interact with their environment through interfaces.
+
+## Autonomous agent loop
+
+bons.ai is autonomous: it observes, thinks, forms hypotheses, experiments, acts, and observes again.
+
+```text
+World
+  ↓
+observe
+  ↓
+think
+  ↓
+hypothesis
+  ↓
+experiment
+  ↓
+action
+  ↓
+World'
+  ↓
+observe
+  ↺
+```
+
+The agent is **hypothesis driven**. A hypothesis is treated as a testable knowledge state rather than merely a thought memo.
+
+```text
+observation
+    ↓
+hypothesis
+    ↓
+prediction
+    ↓
+experiment
+    ↓
+evidence
+    ↓
+evaluation
+    ↓
+update
+    ↺
+```
+
 ## System model
 
 ```text
@@ -166,4 +248,4 @@ AW      = orchestration   （実行の調整）
 | next | 既存 repo のオーガナイズ |
 | later | CLI / skills / MCP / SDK / OpenAPI |
 | later | ブラウザ拡張（WebSocket） |
-
+|
