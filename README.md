@@ -1,52 +1,31 @@
-# bons.ai — Agent OS
+# bons.ai
 
-**bons.ai is the Agent OS for the Bonsai agent organization.**
+**bons.ai is one Agent in the Bonsai world.**
 
-It provides the operating layer that connects agents, sessions, memory, tools, workflows, and GitHub-based shared state.
+It is not an Agent OS above other repositories. Each repository is an Agent; bons.ai is one of them.
 
-## World model
-
-bons.ai treats the world as a typed, relational world.
-
-The world is described through five layers:
+## Model
 
 ```text
-Dictionary
-    ↓
-Ontology
-    ↓
-Type
-    ↓
-System
-    ↓
-Interface
+repo = Agent
+agent.md = Agent declaration
+list = Agent collection
+Skill = Agent capability
+System = relation / cooperation between Agents
+World = field in which Agents exist
 ```
 
-- **Dictionary — 言葉**: defines the meaning of terms and symbols.
-- **Ontology — 存在**: defines what exists in the world.
-- **Type — 型**: defines the structure and kind of entities.
-- **System — 関係**: describes relationships between entities.
-- **Interface — 境界と接続**: defines where entities meet the outside world and what is exchanged across that boundary.
+The basic rule is:
 
-```text
-Dictionary = 言葉
-Ontology   = 存在
-Type       = 型
-System     = 関係
-Interface  = 境界と接続
-```
+> **1 repo = 1 Agent**
 
-Boundary is not treated as a separate layer:
+Every Agent describes itself with `agent.md`.
 
-```text
-Interface = Boundary + Exchange
-```
+## bons.ai
 
-This gives bons.ai a world model in which entities have types, entities are related by systems, and entities interact with their environment through interfaces.
+bons.ai exists to connect people, repositories, skills, sessions, and interfaces through a shared GitHub-centered working environment.
 
-## Autonomous agent loop
-
-bons.ai is autonomous: it observes, thinks, forms hypotheses, experiments, acts, and observes again.
+It observes the world, thinks, forms hypotheses, acts, and observes again.
 
 ```text
 World
@@ -57,8 +36,6 @@ think
   ↓
 hypothesis
   ↓
-experiment
-  ↓
 action
   ↓
 World'
@@ -67,222 +44,67 @@ observe
   ↺
 ```
 
-The agent is **hypothesis driven**. A hypothesis is treated as a testable knowledge state rather than merely a thought memo.
+## Agent
+
+An Agent has complementary aspects:
+
+- **Entity / 実体** — the repository and its contents
+- **Behavior / 挙動** — what it does
+- **Awareness / 意識** — what it notices and cares about
+
+These are not separate layers. They are complementary aspects of one Agent.
+
+See [`agent.md`](agent.md) for bons.ai's self-declaration.
+
+## Skills
+
+A Skill is an Agent capability.
+
+Skills are not limited to executable actions. Thinking capabilities such as observing, classifying, hypothesizing, and reasoning can also be Skills.
+
+## Relations
+
+Agents cooperate through relationships.
 
 ```text
-observation
-    ↓
-hypothesis
-    ↓
-prediction
-    ↓
-experiment
-    ↓
-evidence
-    ↓
-evaluation
-    ↓
-update
-    ↺
+Agent ←→ Agent
+   ↕
+ System
+   ↕
+World
 ```
 
-## Runtime Architecture
+A System is therefore a relation among Agents, not a higher-level Agent.
 
-The Agent Core is independent from its entry point. CLI is one interface, not the runtime itself.
+## Lists
+
+Lists are the exception to the 1-repo-1-agent rule.
+
+A list may enumerate Agents, but it does not become an Agent merely by containing Agent references.
 
 ```text
-                    bons.ai
-                Agent Core / Runtime
-                        │
-             ┌──────────┼──────────┐
-             ↓          ↓          ↓
-           CLI        HTTP API     MCP
-             │          │          │
-             └──────────┼──────────┘
-                        ↓
-                      Agent
-                        ↓
-                      Skill
-                        ↓
-                 World / Interface
-```
-
-The same agent and skill runtime can therefore be used from a terminal, browser application, external service, IDE, or event-driven integration.
-
-### Interfaces
-
-- **CLI** — human and local automation entry point
-- **HTTP API** — browser and external application entry point
-- **MCP** — AI tools and agent-to-agent entry point
-- **Webhook / Events** — event-driven entry point
-- **GitHub** — issues, pull requests, actions, and shared state
-
-The architectural rule is:
-
-> **CLI is an interface to bons.ai, not bons.ai itself.**
-
-This keeps the autonomous agent core independent of presentation and allows new interfaces to be added without changing the agent's reasoning and skill execution model.
-
-## System model
-
-```text
-                 bons.ai
-                Agent OS
-                    │
-       ┌────────────┼────────────┐
-       │            │            │
-    Agents       Sessions      Tools
-       │            │            │
-       │         HOIPOI          │
-       │        4D Pocket         │
-       │            │            │
-       └──────────recap.json─────┘
-                    │
-                 GitHub
-                    │
-                   AW
-                    │
-              Agent execution
-```
-
-## Core components
-
-- **Agent** — participant / worker
-- **Session** — unit of ongoing work
-- **HOIPOI** — portable session capsule / 4D pocket
-- **recap.json** — machine-readable session state and handoff protocol
-- **GitHub** — shared memory, artifacts, transport
-- **AW** — Agentic Workflow orchestration / execution
-- **ADR** — durable decision memory
-- **Issue** — task / work queue
-- **PR** — implementation artifact
-
-## Relationship
-
-```text
-Chat Session
+agents.yaml
+agents.json
+agents.md
     ↓
-  HOIPOI
-    ↓
-recap.json
-    ↓
- bons.ai
-    ↓
- GitHub / AW
-    ↓
- Agents
+Agent list
 ```
 
-**bons.ai = OS**  
-**HOIPOI = pocket**  
-**recap.json = capsule**  
-**AW = scheduler/orchestrator**  
-**GitHub = shared filesystem + message bus**
+## GitHub
 
-## Inventory
+GitHub is the canonical shared state.
 
-```yaml
-id: bons-ai
-name: bons.ai
-display_name: Bonsai Agent OS
-type: agent-os
-status: active
-components:
-  - agents
-  - sessions
-  - hoipoi
-  - recap.json
-  - github
-  - agentic-workflows
-```
+- repository = Agent
+- `agent.md` = self-declaration
+- Issue = work
+- PR = implementation artifact
+- Actions / AW = execution
+- list = collection / index
 
-## Vision — prompt → product
+The repository itself remains the source of truth.
 
-bons.ai は、**プロンプトからプロダクトまで**を一貫させる Agent OS。
+## Principle
 
-```text
-prompt
-  ↓
-相談（consult）
-  ↓
-設計書（design doc）
-  ↓
-ルール（rules）
-  ↓
-product
-```
+> **1 repo = 1 Agent.**
 
-**相談してから設計する。設計してから作る。作る前にルールを決める。**
-
-## Design Principles
-
-- **Consult first.** 相談してから設計書を書く。
-- **Rules over prompts.** ルールを作る。場当たりのプロンプトに頼らない。
-- **Prune the waste.** 無駄は刈り取る。
-- **Agents initiate.** エージェントから働きかける（待たない）。
-- **CLI first.** 操作は CLI から。
-- **Wrapper skills.** スキルをラップして呼び出す。
-- **gh aw for CI/CD.** Agentic Workflows で pack / publish / deploy。
-- **MCP + SDK.** MCP サーバと SDK を提供する。
-- **OpenAPI.** API は OpenAPI で定義する。
-- **Natural language first.** 実装は Python / TypeScript / Rust / Go を想定するが、**今は自然言語のみ**。
-- **Bilingual.** 英語と日本語を混ぜて書く。
-- **Start small.** まず **README と issue 10本**のみ。既存 repo のオーガナイズ計画を先に行う。
-
-## Conceptual model — Verbs, Ontology, Interfaces
-
-- **体験は動詞で語られる。** Experience is narrated by verbs.
-- **動詞はオントロジで関係される。** Verbs are related through ontology.
-- **動詞を持つエージェントはチームを作る。** Agents with verbs form teams → ecosystem.
-- **界面で異なる型たちが交流する。** At interfaces, different types interact.
-- **物理層と記号層を統一する。** Unify the physical layer and the symbolic layer.
-- **type はオブジェクトに限らない。** Type spans objects, verbs, agents, workflows, relations, interfaces.
-
-```text
-Experience → Verb → Ontology → Agent → Team → Ecosystem
-                                   ↕
-                              Interface
-                                   ↕
-                     Physical layer  ⇄  Symbolic layer
-```
-
-```text
-TYPE
- ├─ Object Type      名詞
- ├─ Verb Type        動詞（体験を語る）
- ├─ Agent Type       動詞を持つエージェント
- ├─ Workflow Type    動詞の連鎖
- ├─ Relation Type    関係（オントロジ）
- └─ Interface Type   型が交流する界面
-```
-
-## X Series
-
-The Bonsai layers are organized as the **X Series** (A–Z) and indexed in
-[`bonsai/xX`](https://github.com/bonsai/xX): `xX` (foundation), plus `AX`, `BX`,
-`CX`…`ZX`. Types (philosopher, scientist, businessperson, …) and transformations
-(market, editor, writing, traveler, …) are specializations of the same base.
-
-See [`bonsai/OX`](https://github.com/bonsai/OX) for the type system (Type OS),
-and [`bonsai/TX`](https://github.com/bonsai/TX) for Traveler X.
-
-## AGENTS / SESSIONS / MEMORY
-
-```text
-Agent   = who acts        （誰が行為するか）
-Session = unit of work    （仕事の単位）
-HOIPOI  = pocket          （持ち運べるセッション）
-recap   = capsule         （機械可読な引き継ぎ）
-GitHub  = shared state    （共有された状態）
-AW      = orchestration   （実行の調整）
-```
-
-## Roadmap
-
-| 段階 | 内容 |
-|---|---|
-| now | README と issue 10本のみ |
-| next | 既存 repo のオーガナイズ |
-| later | CLI / skills / MCP / SDK / OpenAPI |
-| later | ブラウザ拡張（WebSocket） |
-|
+> **bons.ai is one Agent among Agents.**
