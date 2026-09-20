@@ -1,0 +1,1 @@
+/home/sexy/.agents/natsume.md

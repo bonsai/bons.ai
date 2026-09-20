@@ -1,0 +1,1 @@
+/home/sexy/.agents/terayama.md

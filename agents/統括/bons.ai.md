@@ -1,0 +1,1 @@
+/home/sexy/.agents/bons.ai.md
