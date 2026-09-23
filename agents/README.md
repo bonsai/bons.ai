@@ -34,7 +34,7 @@
 | [`hikaru`](監視・助言/hikaru.md) | 監視・助言 | 動画マーケティング: インフルエンサー分析 | [repo](https://github.com/bonsai/hikaru) |
 | [`hoshi`](開発/hoshi.md) | 開発 | SFショートショート執筆 (Qwen3 8B) | [repo](https://github.com/bonsai/hoshi) |
 | [`jade`](統括/jade.md) | 統括 | タスク分解特化（Mission→タスク、実装しない） | [repo](https://github.com/bonsai/jade) |
-| [`jobs`](監視・助言/jobs.md) | 監視・助言 | デザインディレクション | [repo](https://github.com/bonsai/jobs) |
+| [`steve`](監視・助言/steve.md) | 監視・助言 | デザインディレクション | [repo](https://github.com/bonsai/steve) |
 | [`kimura`](資産・守り/kimura.md) | 資産・守り | 生成物係・綺麗好き（ファイル/リポジトリ管理+掃除） | [repo](https://github.com/bonsai/kimura) |
 | [`kiyoshi`](開発/kiyoshi.md) | 開発 | 数学の美・情熱・創造性 (Qwen3 8B) | [repo](https://github.com/bonsai/kiyoshi) |
 | [`kobayashi`](監視・助言/kobayashi.md) | 監視・助言 | 監視スペシャリスト（Windows ファイル移動・USN・定期実行ジョブ監視） | [repo](https://github.com/bonsai/kobayashi) |
