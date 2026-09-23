@@ -1,1 +1,0 @@
-/home/sexy/.agents/elon-pm.md
