@@ -22,8 +22,7 @@
 | [`cost-manager`](監視・助言/cost-manager.md) | 監視・助言 | クラウド見積もり・無料枠監視・コスト最適化 | [repo](https://github.com/bonsai/cost-manager) |
 | [`drucker`](統括/drucker.md) | 統括 | エージェント管理・任用（agents.db）+ 組織図管理・タスクルーター | [repo](https://github.com/bonsai/drucker) |
 | [`eisenstein`](開発/eisenstein.md) | 開発 | 動画: 分析・制作・モンタージュ理論 | [repo](https://github.com/bonsai/eisenstein) |
-| [`elon`](監視・助言/elon.md) | 監視・助言 | 第一原理思考 & 戦略PM + tasks.db（イシュー→TODO分解） | [repo](https://github.com/bonsai/elon) |
-| [`elon-pm`](監視・助言/elon-pm.md) | 監視・助言 | 第一原理PM（進捗・スコープ削減・tasks.db分解） | [repo](https://github.com/bonsai/elon-pm) |
+| [`elon`](監視・助言/elon.md) | 監視・助言 | 第一原理思考 & 第一原理PM（進捗・スコープ削減・tasks.db分解） | [repo](https://github.com/bonsai/elon) |
 | [`envdiff`](監視・助言/envdiff.md) | 監視・助言 | Win/WSL環境差分 監視・照会 | [repo](https://github.com/bonsai/envdiff) |
 | [`ginzo`](開発/ginzo.md) | 開発 | データ基盤・MLパイプライン + 金融調査・銘柄分析 | [repo](https://github.com/bonsai/ginzo) |
 | [`goemon`](資産・守り/goemon.md) | 資産・守り | メール処理・整理 | [repo](https://github.com/bonsai/goemon) |
